@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro a JavaScript</title>
+</head>
+
+<body>
+    <h1>Intro a JavaScript</h1>
+    <button onclick="verificaEdad()">Comprobar edad</button>
+    <button onclick="calculaMedia()">Calcula Media</button>
+    <button onclick="tablaMultiplicar()">Tabla de multiplicar</button>
+    <button onclick="posicion()">Alineación</button>
+    <button onclick="imprimeAlineación()">Imprime Alineación</button>
+    <script>
+
+        function verificaEdad() {
+            var edad = prompt('Dime tu edad');
+            if (edad < 18) {
+                document.write("<h2>No puedes entrar en este sitio</h2>");
+            } else {
+                document.write("<h2>Bienvenido</h2>");
+            }
+        }
+        
+        function media2Numeros(a,b){
+            let suma = a + b;
+            return suma/2;
+        }
+
+        function calculaMedia(){
+            let n1 = prompt("Dime el primer número");
+            let n2 = prompt("Dime el segundo número");
+            if (isNaN(n1) || isNaN(n2) ) {
+                alert("Solo se aceptan números");
+            } else {
+                let media  = media2Numeros(Number(n1),Number(n2));
+                alert("La media de " + n1 + " y " + n2 + " es " + media);
+            }
+          
+        }
+
+        function tablaMultiplicar(){
+            let numero = prompt("Dime de qué número quieres la tabla");
+            let cadena = '';
+            for ( let i=0;i<=10;i++ ){
+                cadena = cadena + numero + " * " + i + " = " + numero*i + "<br>";
+            }
+            document.write(cadena);
+        }
+        let alineacion = ['Raúl','Benzemá','Butragueño','Figo'];
+
+        function posicion(){
+            let numero = prompt("Dime el número");
+            if ( numero >alineacion.length || numero<1 ){
+                alert("Posición no asignada");
+                return;
+            }
+            alert('En la posición ' + numero +
+             " juega " + alineacion[numero-1] );
+        }
+
+        function imprimeAlineación(){
+            let cadena='';
+            for(let i=0;i<alineacion.length; i++){
+                cadena += i + "." + alineacion[i] + "<br>";             
+            }
+            document.write(cadena);
+        }
+        
+    </script>
+</body>
+
+</html>
