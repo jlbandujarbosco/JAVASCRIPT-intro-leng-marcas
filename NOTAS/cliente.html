@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="procesa.php" method="get" onsubmit="return validaFormulario()">
+        
+        
+        <p>
+            <label for="">Usuario: <input type="text" 
+            id="usuario" name="usuario"></label>
+        </p>
+
+
+        <p>
+            <label for="">Edad: <input type="number" 
+                id="edad" name="edad"></label>
+            </p>
+        <p>
+        Población: <select name="" id="poblacion">
+            <option value="elija">---Elija una----</option>
+            <option value="to">Tomelloso</option>
+            <option value="al">Alcázar</option>
+
+        </select>
+            <input type="submit" value="Registrar">
+        </p>
+    </form>
+    <script>
+        function validaFormulario(){
+            let usuario = document.getElementById("usuario").value;
+            if (usuario.length<5) {
+                alert("El usuario no puede tener menos de 5 caracteres");
+                return false;
+            }
+            let edad = Number(document.getElementById("edad").value);
+            if (edad<5) {
+                alert("No puedes tener menos de 16 años");
+                return false;
+            }
+            let poblacion = document.getElementById("poblacion").value;
+            if (poblacion=="elija") {
+                alert("Debes elegir una población");
+                return false;
+            }
+            alert("Datos correctos. Procedo a enviar");
+            return true
+        }
+
+    </script>
+</body>
+</html>

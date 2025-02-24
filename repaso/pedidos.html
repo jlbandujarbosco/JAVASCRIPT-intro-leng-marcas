@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <style>
+        #foto {
+            width: 200px;
+            height: 200px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pedidos</h1>
+    <form action="procesa-pedido.php">
+        <label for="producto"></label>
+        <select name="" id="producto" onchange="muestraProducto()">
+            <option value="">Elija Producto</option>
+            <option value="ord">Ordenador</option>
+            <option value="port">Portátil</option>
+            <option value="tab">Tablet</option>
+        </select>
+        <img id="foto" src="" alt="">
+    </form>
+    <script>
+        function muestraProducto(){
+            const producto = document.getElementById("producto").value;
+            if ( producto == "") {
+                document.getElementById("foto").style.visibility = "hidden";
+            } else {
+                document.getElementById("foto").style.visibility = "visible";
+            }
+            
+            if ( producto == "ord") {
+                document.getElementById("foto").src = "images/sobremesa.webp"
+            }
+            if ( producto == "port") {
+                document.getElementById("foto").src = "images/portatil.jpg"
+            }
+            if ( producto == "tab") {
+                document.getElementById("foto").src = "images/tablet.jpg"
+            }
+
+        }
+    </script>
+</body>
+</html>

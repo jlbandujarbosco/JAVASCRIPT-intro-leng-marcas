@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pueblosCR {
+            display:none;
+        }
+        img { height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <select onchange="muestraFoto()"  name="" id="listaProvincias">
+                <option value="cr">Ciudad Real</option>
+                <option value="cu">Cuenca</option>
+                <option value="ab">Albacete</option>
+                <option value="to">Toledo</option>
+                <option value="gu">Guadalajara</option>
+        </select>
+        <img src="" id="foto">
+
+        <select name="pueblosCR" id="pueblosCR">
+            <option value="al">Alcázar de San Juan</option>
+            <option value="to">Tomelloso</option>
+            <option value="ar">Argamasilla de Alba</option>
+        </select>
+    </p>
+
+    <script>
+        muestraFoto();
+        function muestraFoto(){
+            let miFoto= document.getElementById("foto");
+            let miListaProvincias = document.getElementById("listaProvincias");
+            let provinciaSeleccinada = miListaProvincias.value;
+            if ( provinciaSeleccinada == 'cr' ) {
+                miFoto.src ="https://repositorio.turismocastillalamancha.com/miscelanea/171676/49/a39e/ciudad-real.jpg";
+                document.getElementById("pueblosCR").style.display = "inline";
+            } else {
+                document.getElementById("pueblosCR").style.display = "none";
+            } 
+
+            if ( provinciaSeleccinada == 'to' ) {
+                miFoto.src ="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/que-ver-toledo/gr-cms-media-featured_images-none-1c489cc1-bf59-4b9d-acec-875c41f2c4fb-01-puente-de-alcantara-vista-general.jpg"
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        div#ticket {
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+            border-radius: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <H1>Ticket de Caja</H1>
+    <label for="">Concepto<input type="text" value="melones" id="concepto"></label>
+    <label for="">Importe<input type="text" id="importe"></label>
+    <button onclick="agregaProducto()">Añadir</button>
+    <div id="ticket">
+        
+    </div>
+    <h1 id="total">0</h1>
+    <script>
+        
+        function agregaProducto(){
+            //agrega la descripción del producto
+           let concepto = document.getElementById("concepto").value;
+
+           let cadenaItem = "<li>" +  concepto + "</li>";
+
+           document.getElementById("ticket").innerHTML
+           = document.getElementById("ticket").innerHTML + cadenaItem;
+
+           //suma el importe al total
+           
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #titulo {
+            color:green;
+            background-color: yellow;
+            border: 2px solid green;
+            font-size: 5em;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Ejercicios JS</h1>
+    <button onclick="calculaMedia()">Media</button>
+    <button onclick="multiploSiete()">múltiplo de 7</button>
+    <button onclick="edades()">Edades</button>
+    <button onclick="diaDeLaSemana()">Día de la semana</button>
+    <button onclick="pintaUsuario()">Pinta usuario</button>
+    <button onclick="cambiaColor()">Cambia Color</button>
+    <h1 id="titulo">
+
+    </h1>
+    <script>
+        function cambiaColor(){
+            let titulo = document.getElementById("titulo");
+            titulo.style.color = "red";          
+        }
+        function pintaUsuario(){
+            let titulo = document.getElementById("titulo");
+            let usuario = prompt( "Nombre del usuario");
+            titulo.innerHTML = usuario;          
+        }
+
+        function calculaMedia(){
+            let n1; 
+            while ( isNaN(n1) || !n1 ){
+                n1=prompt("Dime un número");
+            }  
+            let n2=prompt("Dime un segundo número");
+            let n3=prompt("Dime un tercero");
+            let n4=prompt("Y el último");
+            let suma = Number(n1)+ Number(n2) + Number(n3) + Number(n4);
+            let media = suma/4;
+            alert('la media es ' + media);          
+        }
+
+        function multiploSiete(){
+            let numero= prompt("Dime un número");
+            if ( numero % 7 ==0 ) {
+                alert( numero + " es múltiplo de 7");
+            } else {
+                alert( numero + " NO es múltiplo de 7");
+            }
+        }
+        function edades(){
+            let nombre1 = prompt('Dime tu nombre');
+            let edad1 = prompt('Dime tu edad');
+            let nombre2 = prompt('Dime otro nombre');
+            let edad2 = prompt('Dime la edad');
+            if ( edad1>edad2) {
+                alert(nombre1 + " es mayor que " + nombre2)
+            } else if ( edad1<edad2) {
+                alert(nombre2 + " es mayor que " + nombre1)
+            } else {
+                alert(nombre2 + " tiene la misma edad que " + nombre1)
+            }
+        }
+
+        function diaDeLaSemana(){
+            let semana = ['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
+            let dia;
+            while ( dia<1 || dia>7 || isNaN(dia)){
+               dia=prompt("Dime un día de la semana"); 
+            }
+            alert( "El día " + dia + "de la semana es " + semana[dia-1])
+        }
+    </script>
+</body>
+</html>
