@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>Pedidos</h1>
-    <form action="procesa-pedido.php">
+    <form action="procesa-pedido.php" onsubmit="return validaFormulario()">
         <label for="producto"></label>
         <select name="" id="producto" onchange="muestraProducto()">
             <option value="">Elija Producto</option>
@@ -23,6 +23,7 @@
             <option value="tab">Tablet</option>
         </select>
         <img id="foto" src="" alt="">
+        <input type="submit" value="Hacer pedido">
     </form>
     <script>
         function muestraProducto(){
@@ -32,7 +33,7 @@
             } else {
                 document.getElementById("foto").style.visibility = "visible";
             }
-            
+
             if ( producto == "ord") {
                 document.getElementById("foto").src = "images/sobremesa.webp"
             }
@@ -43,6 +44,80 @@
                 document.getElementById("foto").src = "images/tablet.jpg"
             }
 
+        }
+        function validaFormulario(){
+            if ( document.getElementById("producto").value=="") {
+                alert("Debe elegir un producto");
+                return false
+            };
+            alert("Procedemos a hacer el pedido");
+            return true;
+        }
+    </script>
+    <h1>Ejercicio 10</h1>
+    <form action="registra-usuario.php" onsubmit="return validaFormlario10()">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario">
+        <label for="acepto">He leído y acepto las condiciones</label>
+        <input type="checkbox" name="acepto" id="acepto">
+        <input type="submit" value="Registrar Usuario">
+    </form>
+    <script>
+        function validaFormlario10(){
+            if ( document.getElementById("usuario").value.length <5 ) {
+                alert( "El usuario debe tener al  menos 5 caracteres");
+                return false;
+            }
+            if ( !document.getElementById("acepto").checked ) {
+                alert( "Debe aceptar las condiciones");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+    <h1>Ejercicio 11 ( Préstamo )</h1>
+    <form action="procesa.php" onsubmit="return validaFormulario11()">
+    <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+    </p>
+    <p>
+        <label for="importe">Importe:</label>
+        <input type="number" id="importe" name="importe">
+    </p>
+    <p>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad">
+    </p>
+    <p>
+        <label for="situacion">Sit.Laboral:</label>
+        <select name="situacion" id="situacion">
+            <option value="">Elija una</option>
+            <option value="act">En activo</option>
+            <option value="des">Desempleado</option>
+            <option value="jub">Jubilado</option>
+        </select>
+    </p>
+        <input type="submit" value="Enviar">
+    </form>
+    <h3 id="mensaje" style="color:red"></h3>
+    <script>          
+        function validaFormulario11(){
+            let mensaje = document.getElementById("mensaje");
+            if (document.getElementById("nombre").value == "") {
+                mensaje.innerHTML = "El nombre no puede ser vacío";
+                return false
+            }
+            if ( Number(document.getElementById("importe").value) <10000) {
+                mensaje.innerHTML = "El importe no puede ser menor que 10000";
+                return false
+            }
+            if ( Number(document.getElementById("edad").value) >=65) {
+                mensaje.innerHTML = "La edad no puede ser mayor o igual que 65";
+                return false
+            }
+            return true;
         }
     </script>
 </body>
