@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="procesa.php" method="get" 
+    onsubmit="return validaFormulario()">
+        <label for="color">Color</label>
+        <input type="color" id="color"><p id="displayColor"></p>
+        <input type="submit" value="Comprar">
+    </form>
+    <script>
+        function validaFormulario(){
+            let color = document.getElementById("color").value;
+            
+            if ( color.toUpperCase() != "#FF0000" && color.toUpperCase() != "#FFFF00" ) {
+                document.getElementById("displayColor").innerHTML = 
+                "Solo se aceptan rojos o amarillos";
+                return false; 
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

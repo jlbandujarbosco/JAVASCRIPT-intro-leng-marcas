@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cálculo des espacio en MRUA</h1>
+    <button onclick="pideDatos()">Calcula X Pide Datos</button>
+    <button id="boton-leedatos">Calcula X Lee Datos</button>
+    <p id="display"></p>
+    <label for="aceleracion">Aceleración</label>
+    <input type="number" name="aceleracion" id="aceleracion">
+    <label for="tiempo">tiempo</label>
+    <input type="number" name="tiempo" id="tiempo">
+    <script>
+        document.getElementById('boton-leedatos').addEventListener('click',leeDatos);
+        
+        function pideDatos(){
+            const a = prompt("Dime la aceleración");
+            const t = prompt("Dime el tiempo");
+            const x = mrua(a,t);
+            alert( 'El espacio recorrido es ' + x )
+
+        }
+
+        function leeDatos(){
+            const a = document.getElementById('aceleracion').value;
+            const t = document.querySelector('#tiempo').value;
+            const x = mrua(a,t);
+            document.querySelector('#display').textContent = "El espacio recorrido es " + x + "m";
+        }
+
+        function mrua(a,t){
+            const x = a * Math.pow(t,2)/2;
+            return x;
+        }
+
+    </script>
+</body>
+</html>
